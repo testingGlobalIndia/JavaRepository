@@ -7,128 +7,129 @@ import java.util.Scanner;
 public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
+    private static LinkedList<Songs> playList = new LinkedList<>();
+    private static ListIterator<Songs> listIterator;
     private static Album album = new Album();
-    private static LinkedList<Song> playlist1 = new LinkedList<>();
-    private static int i=0,j=0;
-    private static boolean isForward=false;
-    private  static ListIterator<Song> listIterator;
+    private static int i = 0, j = 0;
+    private static boolean isForward = true;
 
     public static void main(String[] args) {
-
-        Song song = new Song("Hey Ram",10.23);
-        Song song2 = new Song("Mera Bhola hei Bandari",10.23);
-        Song song3 = new Song("Subh Subh le",10.23);
-        album.addSongToAlbum(song);
-        album.addSongToAlbum(song2);
-        album.addSongToAlbum(song3);
-        album.addSongToPlayList(playlist1,song);
-        album.addSongToPlayList(playlist1,song2);
-        album.addSongToPlayList(playlist1,song3);
-        album.printSongsInPlaylist(playlist1);
-        album.forwardToNextSong();
-        listIterator = playlist1.listIterator();
-        int choice =0;
-        boolean quit = false;
+        Songs HelloSong = new Songs("Hello", 4.5);
+        Songs HiSong = new Songs("Here I am", 5.6);
+        Songs QuickPlaySong = new Songs("Quick play", 7.8);
+        Songs YesSong = new Songs("Yes Boss", 6);
+        album.addSongToAlbum(HelloSong);
+        album.addSongToAlbum(HiSong);
+        album.addSongToAlbum(QuickPlaySong);
+        album.addSongToAlbum(YesSong);
+        album.addSongToPlaylist(playList, HelloSong);
+        album.addSongToPlaylist(playList, HiSong);
+        album.addSongToPlaylist(playList, QuickPlaySong);
+        playList = album.addSongToPlaylist(playList, YesSong);
+        listIterator = playList.listIterator();
+        int choice = 0;
         printMenu();
-        while (!quit){
+        boolean quit = false;
+        while (!quit) {
             System.out.println("Enter your choice");
             choice = scanner.nextInt();
             scanner.nextLine();
-            switch (choice){
+            switch (choice) {
                 case 1:
                     quit = true;
                     break;
                 case 2:
-                    forwardToNextSong();
-                    break;
-                case 3:
-                    backwardToPreviousSong();
-                    break;
-                case 4:
-                    replaySong();
-                    break;
-                case 5:
-                    printPlayList();
-                    break;
-                case 6:
                     printMenu();
                     break;
+                case 3:
+                    forwardSong();
+                    break;
+                case 4:
+                    backwardSong();
+                    break;
+                case 5:
+                    replaySong();
+                    break;
+                case 6:
+                    printSongList();
+                    break;
                 default:
-                    System.out.println("You have pressed wrong key");
+                    System.out.println("You have entered incorrect choice");
                     break;
             }
         }
+
     }
 
-    public static void printMenu(){
-        System.out.println("Given choices are " +
-                "\n\t 1 - Quit application" +
-                "\n\t 2 - Forward to next song" +
-                "\n\t 3 - Backward to previous song" +
-                "\n\t 4 - Replay song" +
-                "\n\t 5 - Print song list in playlist" +
-                "\n\t 6 - Print menu option");
+    public static void printMenu() {
+        System.out.println("Enter key to" +
+                "\t\n 1 - To quit application" +
+                "\t\n 2 - To print menu list" +
+                "\t\n 3 - To forward song" +
+                "\t\n 4 - To backward song" +
+                "\t\n 5 - To replay song" +
+                "\t\n 6 - To print song list");
     }
 
-    public static void forwardToNextSong(){
-        if(i>0){
-            listIterator = album.forwardToNextSong();
-            listIterator.next();
-            i=0;
-        }
-        if(i==0) {
-            listIterator = album.forwardToNextSong();
-            isForward =true;
-            if(listIterator == null) {
-                System.out.println("You are at the end of the song list");
-            }else {
-                System.out.println("Now playing " + listIterator.next().toString());
-                j++;
+    public static void forwardSong() {
+        if (i > 0) {
+            if (listIterator.hasNext()) {
+                listIterator.next();
+                i = 0;
             }
         }
-       }
-
-    public static void backwardToPreviousSong(){
-        if(j>0){
-            listIterator = album.backwardToPreviousSong();
-            listIterator.previous();
-            j=0;
+        if (i == 0) {
+            isForward = true;
+            if (listIterator.hasNext()) {
+                System.out.println("Now playing song " + listIterator.next().toString());
+                j++;
+            }
+        } else {
+            System.out.println("You are at the end of the list");
         }
-        if(j==0) {
-            isForward =false;
-            listIterator = album.backwardToPreviousSong();
-            if(listIterator == null) {
-                System.out.println("You are at the starting of the song list");
-            }else{
-            System.out.println("Now playing "+listIterator.previous().toString());
-            i++;
+    }
 
+    public static void backwardSong() {
+        if (j > 0) {
+            if (listIterator.hasPrevious()) {
+                listIterator.previous();
+                j = 0;
+            }
         }
+        if (j == 0) {
+            isForward = false;
+            if (listIterator.hasPrevious()) {
+                System.out.println("Now playing song " + listIterator.previous().toString());
+                i++;
+            }
+        } else {
+            System.out.println("You are at the start of the list");
         }
     }
 
     public static void replaySong() {
-        if(isForward == true){
-            if(listIterator.hasPrevious()){
-                System.out.println("Replaying song "+listIterator.previous().toString());
+        if (isForward == true) {
+            if (listIterator.hasPrevious()) {
+                System.out.println("Now playing song" + listIterator.previous().toString());
                 listIterator.next();
-            }else{
-                System.out.println("were at the start of the list");
             }
         } else {
-            if(listIterator.hasNext()){
-                System.out.println("Replaying song "+listIterator.next().toString());
+            if (listIterator.hasNext()) {
+                System.out.println("Now playing song " + listIterator.next().toString());
                 listIterator.previous();
             }else{
                 System.out.println("were at the end of the list");
             }
         }
-        }
+    }
 
-    public static void printPlayList(){
+    public static void printSongList(){
+        System.out.println("Songs in current playlist are");
         while (listIterator.hasNext()){
             System.out.println(listIterator.next().toString());
         }
+        while (listIterator.hasPrevious()){
+            listIterator.previous();
+        }
     }
-
 }
