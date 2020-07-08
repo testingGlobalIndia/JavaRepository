@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c105cc52-4b97-49d3-a98d-ae4dfdb2cb5c" name="Default Changelist" comment="" />
+    <list default="true" id="76be7b13-7307-400e-ac10-50d194f95612" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lambda/out/production/Lambda/academy/learnprogramming/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lambda/out/production/Lambda/academy/learnprogramming/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lambda/out/production/Lambda/academy/learnprogramming/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lambda/out/production/Lambda/academy/learnprogramming/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lambda/src/academy/learnprogramming/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lambda/src/academy/learnprogramming/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,16 +16,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1bWNVyw4xdQ4EhVha22K8gf3AmF" />
+  <component name="ProjectId" id="1e2kz44fbp9s2ECYsEG0XrGUQBf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
-  </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -38,11 +41,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c105cc52-4b97-49d3-a98d-ae4dfdb2cb5c" name="Default Changelist" comment="" />
-      <created>1588743916657</created>
+      <changelist id="76be7b13-7307-400e-ac10-50d194f95612" name="Default Changelist" comment="" />
+      <created>1593527333595</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1588743916657</updated>
+      <updated>1593527333595</updated>
     </task>
     <servers />
   </component>
