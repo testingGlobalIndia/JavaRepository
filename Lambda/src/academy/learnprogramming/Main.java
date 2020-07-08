@@ -27,7 +27,17 @@ public class Main {
         employees.add(jack);
         employees.add(james);
 
-        Collections.sort(employees, (e1, e2) ->  e1.getName().compareTo(e2.getName()));
+
+        employees.forEach(employee -> {
+            System.out.println(employee.getName());
+            System.out.println(employee.getAge());
+        });
+
+        AnotherClass anotherClass = new AnotherClass();
+        String s = anotherClass.doSomething();
+        System.out.println(s);
+
+/*        Collections.sort(employees, (e1, e2) ->  e1.getName().compareTo(e2.getName()));
 
         for (Employee emp:employees) {
             System.out.println(emp.getName());
@@ -35,7 +45,7 @@ public class Main {
 
         UpperConcat upperConcat = (s1, s2) -> s1.toUpperCase() + s2.toUpperCase();
         String sillyString = doStringStuff(upperConcat,employees.get(0).getName(), employees.get(1).getName());
-        System.out.println(sillyString);
+        System.out.println(sillyString);*/
     }
 
     public final static String doStringStuff(UpperConcat uc, String s1, String s2){
@@ -72,3 +82,15 @@ class Employee{
 interface UpperConcat {
     String upperAndConcat(String s1,String s2);
 }
+
+class AnotherClass{
+
+    public String doSomething(){
+        return Main.doStringStuff(new UpperConcat() {
+            @Override
+            public String upperAndConcat(String s1, String s2) {
+                return s1.toUpperCase() + s2.toUpperCase();
+            }
+        },"String1","String2");
+    }
+    }
