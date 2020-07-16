@@ -1,0 +1,6 @@
+0 , You are in front of your pc
+1 , You are in a road
+2 , You are in hill
+3 , You are in building
+4 , You are in forest
+5 , You are in terrace
